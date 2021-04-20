@@ -6,8 +6,8 @@ using namespace std;
 //COORDENADA
 struct Punto
 {
-    int x, y;
-    Punto(int _x = 0, int _y = 0) {
+    double x, y;
+    Punto(double _x = 0, double _y = 0) {
         x = _x;
         y = _y;
     }
@@ -17,12 +17,12 @@ struct Punto
 class Marco
 {
 public:
-    Marco(int x, int y, int a);
-    int pmX, pmY, apotema;   
+    Marco(double x, double y, double a);
+    double pmX, pmY, apotema;
     bool contienePto(Punto pto);
 };
 
-Marco::Marco(int x = 0, int y = 0, int a = 0)
+Marco::Marco(double x = 0, double y = 0, double a = 0)
 {
     pmX = x;
     pmY = y;
@@ -132,9 +132,13 @@ int main(){
     Punto p4(20, 20);
 
     QT.insertarPto(p1);
+    cout << "-------------------------------------------------------------------------------\n";
     QT.insertarPto(p2);
+    cout << "-------------------------------------------------------------------------------\n";
     QT.insertarPto(p3);
+    cout << "-------------------------------------------------------------------------------\n";
     QT.insertarPto(p4);
+    cout << "-------------------------------------------------------------------------------\n";
 
     return 0;
 }
