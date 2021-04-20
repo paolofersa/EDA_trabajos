@@ -68,22 +68,6 @@ Quadtree::~Quadtree()
 {
     Quadtree* destructor;
     if (dividido) {
-        for (destructor = derechaArriba; destructor && destructor->dividido; destructor = destructor->derechaArriba)
-        {
-            delete destructor;
-        }
-        for (destructor = derechaAbajo; destructor && destructor->dividido; destructor = destructor->derechaAbajo)
-        {
-            delete destructor;
-        }
-        for (destructor = izquierdaAbajo; destructor && destructor->dividido; destructor = destructor->izquierdaAbajo)
-        {
-            delete destructor;
-        }
-        for (destructor = izquierdaArriba; destructor && destructor->dividido; destructor = destructor->izquierdaArriba)
-        {
-            delete destructor;
-        }
         delete derechaArriba;
         delete derechaAbajo;
         delete izquierdaAbajo;
@@ -97,6 +81,11 @@ bool Quadtree::insertarPto(Punto pto) {
 
     if (profundidad == 0) {
         Puntos.push_back(pto);
+
+        cout << "Se inserto el pto:\t" << pto.x << ", " << pto.y << endl;
+        cout << "en el cuadrante de coordenada media:\t" << limiteMarco.pmX << ", " << limiteMarco.pmY << endl;
+        cout << endl;
+
         return true;
     }
     else {
@@ -124,6 +113,9 @@ void Quadtree::dividir() {
     derechaArriba = new Quadtree(DAr, profundidad - 1);
     izquierdaAbajo = new Quadtree(IAb, profundidad - 1);
     izquierdaArriba = new Quadtree(IAr, profundidad - 1);
+
+    cout << "Se DIVIDIO el cuadrante de coordenada media:\t" << limiteMarco.pmX << ", " << limiteMarco.pmY << endl;
+    cout << endl;
 
     dividido = true;
 }
