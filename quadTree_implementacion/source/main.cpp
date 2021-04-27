@@ -47,6 +47,7 @@ private:
     int profundidad;
     vector<Punto> Puntos;
     bool dividido;
+    void eliminarSubDIvision(Quadtree* destructor);
 
     Quadtree* derechaArriba;
     Quadtree* derechaAbajo;
@@ -66,12 +67,39 @@ Quadtree::Quadtree(Marco limite, int n)
 
 Quadtree::~Quadtree()
 {
-    Quadtree* destructor;
     if (dividido) {
-        delete derechaArriba;
-        delete derechaAbajo;
-        delete izquierdaAbajo;
-        delete izquierdaArriba;
+        eliminarSubDIvision(derechaArriba);
+        eliminarSubDIvision(derechaAbajo);
+        eliminarSubDIvision(izquierdaAbajo);
+        eliminarSubDIvision(izquierdaArriba);
+        cout << "Se ELIMINO el cuadrante de coordenada media:\t" << derechaArriba->limiteMarco.pmX << ", " << derechaArriba->limiteMarco.pmY << endl;
+        //delete derechaArriba;
+        cout << "Se ELIMINO el cuadrante de coordenada media:\t" << derechaAbajo->limiteMarco.pmX << ", " << derechaAbajo->limiteMarco.pmY << endl;
+        //delete derechaAbajo;
+        cout << "Se ELIMINO el cuadrante de coordenada media:\t" << izquierdaAbajo->limiteMarco.pmX << ", " << izquierdaAbajo->limiteMarco.pmY << endl;
+        //delete izquierdaAbajo;
+        cout << "Se ELIMINO el cuadrante de coordenada media:\t" << izquierdaArriba->limiteMarco.pmX << ", " << izquierdaArriba->limiteMarco.pmY << endl;
+        //delete izquierdaArriba;
+    }
+}
+
+void Quadtree::eliminarSubDIvision(Quadtree* destructor) {
+    if (!destructor->dividido)
+        return;
+    else
+    {
+        eliminarSubDIvision(destructor->derechaArriba);
+        eliminarSubDIvision(destructor->derechaAbajo);
+        eliminarSubDIvision(destructor->izquierdaAbajo);
+        eliminarSubDIvision(destructor->izquierdaArriba);
+        cout << "Se ELIMINO el cuadrante de coordenada media:\t" << destructor->derechaArriba->limiteMarco.pmX << ", " << destructor->derechaArriba->limiteMarco.pmY << endl;
+        delete destructor->derechaArriba;
+        cout << "Se ELIMINO el cuadrante de coordenada media:\t" << destructor->derechaAbajo->limiteMarco.pmX << ", " << destructor->derechaAbajo->limiteMarco.pmY << endl;
+        delete destructor->derechaAbajo;
+        cout << "Se ELIMINO el cuadrante de coordenada media:\t" << destructor->izquierdaAbajo->limiteMarco.pmX << ", " << destructor->izquierdaAbajo->limiteMarco.pmY << endl;
+        delete destructor->izquierdaAbajo;
+        cout << "Se ELIMINO el cuadrante de coordenada media:\t" << destructor->izquierdaArriba->limiteMarco.pmX << ", " << destructor->izquierdaArriba->limiteMarco.pmY << endl;
+        delete destructor->izquierdaArriba;
     }
 }
 
