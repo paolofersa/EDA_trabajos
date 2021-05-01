@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <stdio.h>
 #include <fstream>
-#include <stdlib.h>
+#include <iterator>
+#include <sstream>
 
 using namespace std;
 
@@ -132,24 +132,50 @@ void Quadtree::dividir() {
     dividido = true;
 }
 
+//ESTRUCTURA PARA REGISTRO
+struct registro
+{
+    long double x;
+    long double y;
+};
+
+
 //CODIGO PRINCIPAL
 int main(){
     
-    ofstream f;
-    ifstream in;
-
-    Marco marcoExterior(50,50,50);
+    Marco marcoExterior(50,50,50);      //falta determinar valores de marco general
     Quadtree QT(marcoExterior, 2);
+    Punto pto;
 
-    //abrir archivo
-    in.open("provisional.txt", ios::app);
-    if (in.fail())
+    //abrir archivo y leer
+    ifstream file("loc-brightkite_totalCheckins.tsv");
+    vector <registro> v;
+
+    string line;
+
+    while (getline(file, line))
     {
-        cout << "Error al abrir" << endl;
-        system("pause");
-        exit(1);
+        istringstream is(line);
+        registro r;
+        string s;
+        //primer valor
+        getline(is, s, '\t');
+        r.x = stold(s);
+        //segundo valor
+        getline(is, s, '\n');
+        r.y = stold(s);
+
+        v.push_back(r);
+    }
+    //insertar puntos a arbol
+    for (auto it = begin(v); it != end(v); ++it)
+    {
+        pto.x = it->x;
+        pto.y = it->y;
+        QT.insertarPto(pto);
     }
 
+    /*
     Punto p1(24,60);
     Punto p2(50, 90);
     Punto p3(70, 30);
@@ -163,6 +189,6 @@ int main(){
     cout << "-------------------------------------------------------------------------------\n";
     QT.insertarPto(p4);
     cout << "-------------------------------------------------------------------------------\n";
-
+    */
     return 0;
 }

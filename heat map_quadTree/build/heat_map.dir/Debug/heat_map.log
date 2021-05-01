@@ -1,3 +1,3 @@
 ﻿  main.cpp
-E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\heat map_quadTree\source\main.cpp(115): warning C4715: 'Quadtree::insertarPto': no todas las rutas de acceso de control devuelven un valor
+E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\heat map_quadTree\source\main.cpp(119): warning C4715: 'Quadtree::insertarPto': no todas las rutas de acceso de control devuelven un valor
   heat_map.vcxproj -> E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\heat map_quadTree\build\Debug\heat_map.exe
