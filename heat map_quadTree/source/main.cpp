@@ -10,8 +10,8 @@ using namespace std;
 //COORDENADA
 struct Punto
 {
-    double x, y;
-    Punto(double _x = 0, double _y = 0) {
+    long double x, y;
+    Punto(long double _x = 0, long double _y = 0) {
         x = _x;
         y = _y;
     }
@@ -21,20 +21,21 @@ struct Punto
 class Marco
 {
 public:
-    Marco(double x, double y, double a);
-    double pmX, pmY, apotema;
+    Marco(long double x, long double y, long double _ancho, long double _alto);
+    long double pmX, pmY, ancho, alto;
     bool contienePto(Punto pto);
 };
 
-Marco::Marco(double x = 0, double y = 0, double a = 0)
+Marco::Marco(long double x = 0, long double y = 0, long double _ancho = 0, long double _alto = 0)
 {
     pmX = x;
     pmY = y;
-    apotema = a;
+    ancho = _ancho;
+    alto = _alto;
 }
 
 bool Marco::contienePto(Punto pto) {
-    return(pto.x >= pmX - apotema && pto.x < pmX + apotema && pto.y >= pmY - apotema && pto.y < pmY + apotema);
+    return(pto.x >= pmX - ancho && pto.x < pmX + ancho && pto.y >= pmY - alto && pto.y < pmY + alto);
 }
 
 
@@ -45,19 +46,20 @@ public:
     Quadtree(Marco limite, int n);
     ~Quadtree();
     bool insertarPto(Punto pto);
-
-private:
     Marco limiteMarco;
     int profundidad;
     vector<Punto> Puntos;
     bool dividido;
-    void eliminarSubDIvision(Quadtree* destructor);
-
+    
     Quadtree* derechaArriba;
     Quadtree* derechaAbajo;
     Quadtree* izquierdaAbajo;
     Quadtree* izquierdaArriba;
 
+    static int cantidadMaxPtos;
+
+private:
+    void eliminarSubDIvision(Quadtree* destructor);
     void dividir();
 };
 
@@ -101,6 +103,8 @@ bool Quadtree::insertarPto(Punto pto) {
 
     if (profundidad == 0) {
         Puntos.push_back(pto);
+        if (Puntos.size() > cantidadMaxPtos)
+            cantidadMaxPtos = Puntos.size();
         return true;
     }
     else {
@@ -119,10 +123,10 @@ bool Quadtree::insertarPto(Punto pto) {
 }
 
 void Quadtree::dividir() {
-    Marco DAb(limiteMarco.pmX + limiteMarco.apotema/2, limiteMarco.pmY - limiteMarco.apotema / 2, limiteMarco.apotema/2);
-    Marco DAr(limiteMarco.pmX + limiteMarco.apotema / 2, limiteMarco.pmY + limiteMarco.apotema / 2, limiteMarco.apotema / 2);
-    Marco IAb(limiteMarco.pmX - limiteMarco.apotema / 2, limiteMarco.pmY - limiteMarco.apotema / 2, limiteMarco.apotema / 2);
-    Marco IAr(limiteMarco.pmX - limiteMarco.apotema / 2, limiteMarco.pmY + limiteMarco.apotema / 2, limiteMarco.apotema / 2);
+    Marco DAb(limiteMarco.pmX + limiteMarco.ancho/2, limiteMarco.pmY - limiteMarco.alto / 2, limiteMarco.ancho/2, limiteMarco.alto / 2);
+    Marco DAr(limiteMarco.pmX + limiteMarco.ancho / 2, limiteMarco.pmY + limiteMarco.alto / 2, limiteMarco.ancho / 2, limiteMarco.alto / 2);
+    Marco IAb(limiteMarco.pmX - limiteMarco.ancho / 2, limiteMarco.pmY - limiteMarco.alto / 2, limiteMarco.ancho / 2, limiteMarco.alto / 2);
+    Marco IAr(limiteMarco.pmX - limiteMarco.ancho / 2, limiteMarco.pmY + limiteMarco.alto / 2, limiteMarco.ancho / 2, limiteMarco.alto / 2);
     
     derechaAbajo = new Quadtree(DAb, profundidad-1);
     derechaArriba = new Quadtree(DAr, profundidad - 1);
@@ -130,6 +134,44 @@ void Quadtree::dividir() {
     izquierdaArriba = new Quadtree(IAr, profundidad - 1);
 
     dividido = true;
+}
+
+void escribirCoordenadas(Quadtree* ptro){
+    if (!ptro->dividido) {
+        if (ptro->Puntos.size() > 0)
+        {
+            ofstream ofs;
+            ofs.open("provisional.txt", ios::app);
+
+            double num = ptro->Puntos.size();
+            double den = Quadtree::cantidadMaxPtos;
+            double valor = num / den;
+            string color = valor > 0.9 ? "#800026" :
+                valor > 0.8 ? "#BD0026" :
+                valor > 0.7 ? "#E31A1C" :
+                valor > 0.6 ? "#FC4E2A" :
+                valor > 0.5 ? "#FD8D3C" :
+                valor > 0.4 ? "#FEB24C" :
+                valor > 0.2 ? "#FED976" :
+                "#FFEDA0";
+
+            ofs << ptro->limiteMarco.pmX - ptro->limiteMarco.ancho << "\t" <<
+                ptro->limiteMarco.pmY + ptro->limiteMarco.alto << "\t" <<
+                ptro->limiteMarco.pmX + ptro->limiteMarco.ancho << "\t" <<
+                ptro->limiteMarco.pmY - ptro->limiteMarco.alto << "\t" <<
+                color << endl;
+
+            ofs.close();
+        }
+        return;
+    }
+    else
+    {
+        escribirCoordenadas(ptro->derechaArriba);
+        escribirCoordenadas(ptro->derechaAbajo);
+        escribirCoordenadas(ptro->izquierdaAbajo);
+        escribirCoordenadas(ptro->izquierdaArriba);
+    }
 }
 
 //ESTRUCTURA PARA REGISTRO
@@ -141,13 +183,20 @@ struct registro
 
 
 //CODIGO PRINCIPAL
+int Quadtree::cantidadMaxPtos = 0;
+
 int main(){
     
-    Marco marcoExterior(50,50,50);      //falta determinar valores de marco general
-    Quadtree QT(marcoExterior, 2);
-    Punto pto;
+    int profundidad;
+    cout << "Ingresar profundidad deseada:\n";
+    cin >> profundidad;
 
-    //abrir archivo y leer
+    Marco marcoExterior(0,0,180,90);      // (-180,90) y (180,-90)
+    Quadtree QT(marcoExterior, profundidad);
+    Quadtree* ptroQT = &QT;
+    Punto pto;
+    
+    //ABRIR ARCHIVO Y LEER
     ifstream file("loc-brightkite_totalCheckins.tsv");
     vector <registro> v;
 
@@ -167,28 +216,46 @@ int main(){
 
         v.push_back(r);
     }
-    //insertar puntos a arbol
+    //INSERTAR PUNTOS A ARBOL
     for (auto it = begin(v); it != end(v); ++it)
     {
         pto.x = it->x;
         pto.y = it->y;
         QT.insertarPto(pto);
     }
+    //GUARDAR COORDENADAS EN TXT
+    ofstream ofs;
+    ofs.open("provisional.txt", ofstream::out | ofstream::trunc);
+    ofs.close();
 
+    escribirCoordenadas(ptroQT);
+
+    cout << "\n Los datos necesarios para el MAPA DE CALOR se han almacenado satisfactoriamente\n";
+    
     /*
     Punto p1(24,60);
     Punto p2(50, 90);
     Punto p3(70, 30);
     Punto p4(20, 20);
+    Punto p5(60, 40);
+    Punto p6(10, 60);
+    Punto p7(55, 40);
 
     QT.insertarPto(p1);
-    cout << "-------------------------------------------------------------------------------\n";
     QT.insertarPto(p2);
-    cout << "-------------------------------------------------------------------------------\n";
     QT.insertarPto(p3);
-    cout << "-------------------------------------------------------------------------------\n";
     QT.insertarPto(p4);
-    cout << "-------------------------------------------------------------------------------\n";
+    QT.insertarPto(p5);
+    QT.insertarPto(p6);
+    QT.insertarPto(p7);
+
+    cout << "Cantidad maxima de ptos por cuadrante es:\t" << Quadtree::cantidadMaxPtos << endl;
+    
+    ofstream ofs;
+    ofs.open("provisional.txt", ofstream::out | ofstream::trunc);
+    ofs.close();
+
+    escribirCoordenadas(ptroQT);
     */
     return 0;
 }
