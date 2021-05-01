@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\heat map_quadTree\source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\heat map_quadTree\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F10B2D70-6CB1-3010-BB33-1703CF21DF4F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+^E:\UCSP\CCOMP\2021-01\ESTRUCTURA DE DATOS AVANZADAS\LABORATORIO\TRABAJOS_GITHUB\HEAT MAP_QUADTREE\BUILD\CMAKEFILES\9AC37086F7C922CA1F8AD76BC77D4973\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SE:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/heat map_quadTree" "-BE:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/heat map_quadTree/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "E:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/heat map_quadTree/build/Heat_map.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
