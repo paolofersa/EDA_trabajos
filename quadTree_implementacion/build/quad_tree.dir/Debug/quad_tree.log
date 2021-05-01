@@ -1,2 +1,3 @@
 ﻿  main.cpp
-  quad_tree.vcxproj -> E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\quadTree_implementacion\build\Debug\quad_tree.exe
+E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\quadTree_implementacion\source\main.cpp(132): warning C4715: 'Quadtree::insertarPto': no todas las rutas de acceso de control devuelven un valor
+  quad_tree.vcxproj -> E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\quadTree_implementacion\build\Debug\quad_tree.exe

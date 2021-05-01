@@ -1,6 +1,6 @@
-^E:\UCSP\CCOMP\2021-01\ESTRUCTURA DE DATOS AVANZADAS\LABORATORIO\QUADTREE_IMPLEMENTACION\BUILD\CMAKEFILES\8E3811BA2B176FEBC0EDE0E46AF717FE\GENERATE.STAMP.RULE
+^E:\UCSP\CCOMP\2021-01\ESTRUCTURA DE DATOS AVANZADAS\LABORATORIO\TRABAJOS_GITHUB\QUADTREE_IMPLEMENTACION\BUILD\CMAKEFILES\6A3E6248F292815FC118AEE0AABDE2D1\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SE:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/quadTree_implementacion" "-BE:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/quadTree_implementacion/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "E:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/quadTree_implementacion/build/Quad_tree.sln"
+"C:\Program Files\CMake\bin\cmake.exe" "-SE:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/quadTree_implementacion" "-BE:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/quadTree_implementacion/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "E:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/quadTree_implementacion/build/Quad_tree.sln"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
