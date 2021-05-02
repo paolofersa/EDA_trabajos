@@ -1,8 +1,10 @@
 let myMap = L.map('myMap').setView([25.5, -73.12], 5)
 
-L.tileLayer(`https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png`, {
-	maxZoom: 18,
-}).addTo(myMap);
+const attribution =
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+const tiles = L.tileLayer(tileUrl, { attribution });
+tiles.addTo(myMap);
 
 myMap.doubleClickZoom.disable()
 /*
