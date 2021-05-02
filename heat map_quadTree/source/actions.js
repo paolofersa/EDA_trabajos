@@ -1,4 +1,4 @@
-let myMap = L.map('myMap').setView([51.505, -0.09], 13)
+let myMap = L.map('myMap').setView([25.5, -73.12], 5)
 
 L.tileLayer(`https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png`, {
 	maxZoom: 18,
