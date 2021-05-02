@@ -141,7 +141,7 @@ void escribirCoordenadas(Quadtree* ptro){
         if (ptro->Puntos.size() > 0)
         {
             ofstream ofs;
-            ofs.open("provisional.txt", ios::app);
+            ofs.open("provisional.csv", ios::app);
 
             double num = ptro->Puntos.size();
             double den = Quadtree::cantidadMaxPtos;
@@ -155,10 +155,10 @@ void escribirCoordenadas(Quadtree* ptro){
                 valor > 0.2 ? "#FED976" :
                 "#FFEDA0";
 
-            ofs << ptro->limiteMarco.pmX - ptro->limiteMarco.ancho << "\t" <<
-                ptro->limiteMarco.pmY + ptro->limiteMarco.alto << "\t" <<
-                ptro->limiteMarco.pmX + ptro->limiteMarco.ancho << "\t" <<
-                ptro->limiteMarco.pmY - ptro->limiteMarco.alto << "\t" <<
+            ofs << ptro->limiteMarco.pmX - ptro->limiteMarco.ancho << "," <<
+                ptro->limiteMarco.pmY + ptro->limiteMarco.alto << "," <<
+                ptro->limiteMarco.pmX + ptro->limiteMarco.ancho << "," <<
+                ptro->limiteMarco.pmY - ptro->limiteMarco.alto << "," <<
                 color << endl;
 
             ofs.close();
@@ -225,7 +225,7 @@ int main(){
     }
     //GUARDAR COORDENADAS EN TXT
     ofstream ofs;
-    ofs.open("provisional.txt", ofstream::out | ofstream::trunc);
+    ofs.open("provisional.csv", ofstream::out | ofstream::trunc);
     ofs.close();
 
     escribirCoordenadas(ptroQT);
