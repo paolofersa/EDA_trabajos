@@ -19,13 +19,22 @@ var colorRect = "#800026";
 L.rectangle(bounds, {color: colorRect, weight: 1}).addTo(myMap);
 
 getData();
-
+var p1x, p1y, p2x, p2y, col;
 //leyendo el archivo
 async function getData(){
-    const response = await fetch("../build/provisional.csv");
+    const response = await fetch('../build/provisional.txt')
     const data = await response.text();
-    console.log(data);
 
     const rows = data.split('\n');
-    
+    rows.forEach(i=>{
+        const row = i.split('\t');
+        p1x = row[0];
+        p1y = row[1];
+        p2x = row[2];
+        p2y = row[3];
+        col = row[4];
+        console.log(p1x,p1y);
+    });
+
+    console.log(rows);
 }
