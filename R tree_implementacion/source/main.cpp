@@ -74,7 +74,9 @@ bool RTree::insert(vector <tuple<float, float>> E) {
 		}
 	}
 	else	{
-
+		RNode** LL;
+		linearSplitNode();
+		adjustTree();
 	}
 }
 
