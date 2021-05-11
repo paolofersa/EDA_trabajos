@@ -146,10 +146,10 @@ void escribirCoordenadas(Quadtree* ptro){
             double num = ptro->Puntos.size();
             double den = Quadtree::cantidadMaxPtos;
             double valor = num / den;
-            string color = valor > 0.8 ? "#e93e3a" :
-                valor > 0.6 ? "#ed683c" :
-                valor > 0.4 ? "#f3903f" :
-                valor > 0.2 ? "#fdc70c" :
+            string color = valor > 0.7 ? "#e93e3a" :
+                valor > 0.5 ? "#ed683c" :
+                valor > 0.2 ? "#f3903f" :
+                valor > 0.05 ? "#fdc70c" :
                 "#fff33b";
 
             ofs << ptro->limiteMarco.pmX - ptro->limiteMarco.ancho << "\t" <<
