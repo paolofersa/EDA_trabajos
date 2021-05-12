@@ -30,17 +30,20 @@ class RTree
 public:
 	RTree(int _M);
 	~RTree();
+	RNode* root;
 
 	bool insert(vector <tuple<float, float>> E);
-	void search(RNode** T, vector <tuple<float, float>> S);
+	void search(vector <tuple<float, float>> S, RNode**& T);
 
 private:
-	RNode* root;
 	int M;		//max number of entries
 	int m;		//min number of entries
 
 	bool chooseLeaf(vector <tuple<float, float>> E, RNode**& N);
 	float findEnlargement(vector <tuple<float, float>> boundingBox, vector <tuple<float, float>> entry);
+	void linearSplitNode(RNode**& L, RNode*& LL, vector <tuple<float, float>> entry);
+	void adjustTree(RNode**& L);
+	bool overlaps(RNode*& node, vector <tuple<float, float>> entry);
 };
 
 RTree::RTree(int _M)
@@ -54,9 +57,31 @@ RTree::~RTree()
 {
 }
 
-void RTree::search(RNode** T, vector <tuple<float, float>> S) {
-	if ((*T) && !(*T)->leaf) {	//adjust
-
+void RTree::search(vector <tuple<float, float>> S, RNode**& T) {
+	//first value of T = &root
+	//S1
+	if ((*T) && !(*T)->leaf) {			//is not a leaf
+		//check each entry E if overlap S
+		for (RNode* E = (*T); E->I.size() != 0 && E < (*T) + M; E++) {
+			if (overlaps(E, S)) {
+				RNode** Ep = &(E->child_ptr);
+				search(S, Ep);
+			}
+		}
+	}
+	else{								//is a leaf
+		for (RNode* E = (*T); E->I.size() != 0 && E < (*T) + M; E++) {
+			if (overlaps(E, S)) {
+				vector<tuple<float, float>> qualifyingRecord = E->tuple_id;
+				//is a qualifying record
+				cout << "El registro de coordenadas\t";
+				for (int i = 0; i < qualifyingRecord.size(); i++) {
+					cout << "d" << i;
+					cout << " [" << get<0>(qualifyingRecord[i]) << ", " << get<1>(qualifyingRecord[i]) << "]\t";
+				}
+				cout << "coincide con la entrada dada\n";
+			}
+		}
 	}
 }
 
@@ -69,14 +94,15 @@ bool RTree::insert(vector <tuple<float, float>> E) {
 		for (RNode* it = (*L); cond; it++) {		//search the entry with no value
 			if (it->tuple_id.size() != 0) {
 				it->tuple_id = E;
+				it->I = E;
 				cond = false;
 			}
 		}
 	}
 	else	{
-		RNode** LL;
-		linearSplitNode();
-		adjustTree();
+		RNode* LL;
+		linearSplitNode(L, LL, E);
+		adjustTree(L);
 	}
 }
 
@@ -123,6 +149,14 @@ bool RTree::chooseLeaf(vector <tuple<float, float>> E, RNode**& N) {
 	return *N != 0;
 }
 
+void RTree::linearSplitNode(RNode**& L, RNode*& LL, vector <tuple<float, float>> entry) {
+
+}
+
+void RTree::adjustTree(RNode**& L) {
+
+}
+
 float RTree::findEnlargement(vector <tuple<float, float>> boundingBox, vector <tuple<float, float>> entry) {
 	float actualArea = 1;			//area of bounding box
 	for (vector<tuple<float, float>>::iterator it = boundingBox.begin(); it != boundingBox.end(); it++)
@@ -152,6 +186,18 @@ float RTree::findEnlargement(vector <tuple<float, float>> boundingBox, vector <t
 		biggestArea = biggestArea * (get<1>(*it) - get<0>(*it));
 
 	return biggestArea - actualArea;
+}
+
+bool  RTree::overlaps(RNode*& node, vector <tuple<float, float>> entry) {
+	for (int i = 0; i < node->I.size(); i++) {
+		if (get<0>(entry[i]) >= get<0>(node->I[i]) &&
+			get<0>(entry[i]) <= get<1>(node->I[i]))
+			return true;
+		if (get<1>(entry[i]) >= get<0>(node->I[i]) &&
+			get<1>(entry[i]) <= get<1>(node->I[i]))
+			return true;
+	}
+	return false;
 }
 
 //CODIGO PRINCIPAL
