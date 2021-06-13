@@ -1,0 +1,10 @@
+^E:\UCSP\CCOMP\2021-01\ESTRUCTURA DE DATOS AVANZADAS\LABORATORIO\TRABAJOS_GITHUB\K MEANS_IMPLEMENTATION\BUILD\CMAKEFILES\F6BCB62541F555A86D11C43307C14D6C\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SE:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/K means_implementation" "-BE:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/K means_implementation/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "E:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/K means_implementation/build/K_means.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
