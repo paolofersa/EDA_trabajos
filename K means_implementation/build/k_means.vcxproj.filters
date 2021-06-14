@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\K means_implementation\source\main.cpp">
+    <ClCompile Include="D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\K means_implementation\source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\K means_implementation\CMakeLists.txt" />
+    <CustomBuild Include="D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\K means_implementation\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{85BCD4FC-26A7-3E2D-9FA6-2114C90BA751}</UniqueIdentifier>
+      <UniqueIdentifier>{CC599157-6008-3B10-BA14-C88718438B72}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

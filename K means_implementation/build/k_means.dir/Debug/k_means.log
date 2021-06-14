@@ -1,3 +1,6 @@
-﻿  Building Custom Rule E:/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/K means_implementation/CMakeLists.txt
-  main.cpp
-  k_means.vcxproj -> E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\K means_implementation\build\Debug\k_means.exe
+﻿  main.cpp
+D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\K means_implementation\source\main.cpp(58,29): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\K means_implementation\source\main.cpp(59,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\K means_implementation\source\main.cpp(69,22): warning C4244: 'inicializando': conversión de '__int64' a 'int'; posible pérdida de datos
+D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\K means_implementation\source\main.cpp(106,21): warning C4244: 'inicializando': conversión de '__int64' a 'int'; posible pérdida de datos
+  k_means.vcxproj -> D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\K means_implementation\build\Debug\k_means.exe

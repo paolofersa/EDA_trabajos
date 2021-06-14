@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\K means_implementation\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\K means_implementation\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>E:\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\K means_implementation\build\Debug\k_means.exe</FullPath>
+      <FullPath>D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\K means_implementation\build\Debug\k_means.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
