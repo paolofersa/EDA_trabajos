@@ -53,7 +53,7 @@ void escribirResultado(vector<Punto>* coordenadas) {
 }
 
 //ALGORITMO K-MEANS
-void kMeansClustering(vector<Punto>* coordenadas, int iteraciones, int cant_cluster) {
+void kMeans(vector<Punto>* coordenadas, int iteraciones, int cant_cluster) {
 	vector<Punto> centroides;
 	int n = coordenadas->size();
 	srand(time(0));
@@ -137,7 +137,7 @@ int main(){
 	cin >> it;
 	cout << "Insertar cantidad de CLUSTERS" << endl;
 	cin >> cl;
-	kMeansClustering(&coordenadas, it, cl);
+	kMeans(&coordenadas, it, cl);
 
     return 0;
 }
