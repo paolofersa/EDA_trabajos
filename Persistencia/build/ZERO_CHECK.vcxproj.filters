@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\Persistencia\build\CMakeFiles\f9c5fc58c9d210dceba9b5f379a094e9\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1CCE0B11-A16B-36CD-8616-F4C91C52AE11}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
