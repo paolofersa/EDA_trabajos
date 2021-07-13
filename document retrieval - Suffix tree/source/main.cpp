@@ -225,7 +225,7 @@ int cantidadCoincidencias(SuffixTreeNode* &nodo, string S, string P) {
                 coincidencia = false;
         }
         //incrementar posicion comparada
-        for (int i = nodoActual->aristaInicial; posComparada < P.length() - 1 && i <= nodoActual->aristaFinal; i++) {
+        for (int i = nodoActual->aristaInicial; coincidencia && posComparada < P.length() - 1 && i <= nodoActual->aristaFinal; i++) {
             if (S[i] == P[posComparada]) {
                 posComparada++;
                 coincidencia = true;
@@ -252,7 +252,8 @@ int main()
     vector<string> titulos;
     vector<string> abstracts;
     string linea;
-    ifstream file("../preprocesamiento/datosBase_lema.csv");
+    ifstream file("../preprocesamiento/datosBase_prueba.csv");
+    //ifstream file("../preprocesamiento/datosBase_lema.csv");
 
     while (getline(file, linea)) {
         stringstream lineStream(linea);
@@ -307,7 +308,7 @@ int main()
     //CALCULAR CALIFICACION POR DOCUMENTO Y POR PALABRA DE QUERY
     cout << "\t\t";
     for (int i = 0; i < cantPalabrasQuery; i++)
-        cout << P[0] << '\t';
+        cout << P[i] << '\t';
     cout << endl;
 
     for (int i = 0; i < ids.size(); i++) {
@@ -326,9 +327,9 @@ int main()
     for (int i = 0; i < ids.size(); i++)
         delete[] matrCantidades[i];
     delete[] matrCantidades;
-
+    
     /*
-    string S = "ababaa$";
+    string S = "comidadoctorcomentiradorjugar$";
     vector<int> orden = construirSuffixArray(S);
     for (int i = 0; i < S.length(); i++)
         cout << orden[i] << '\t';
@@ -341,7 +342,7 @@ int main()
 
     SuffixTreeNode* raiz = suffixTreeDesdeSuffixArray(S, orden, arregloPCML);
 
-    string P = "a$";
+    string P = "hola$";
     int coincidencias = cantidadCoincidencias(raiz, S, P);
     cout << "Cantidad de coincidencias es: " << coincidencias << endl;
     */
