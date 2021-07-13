@@ -252,8 +252,8 @@ int main()
     vector<string> titulos;
     vector<string> abstracts;
     string linea;
-    ifstream file("../preprocesamiento/datosBase_prueba.csv");
-    //ifstream file("../preprocesamiento/datosBase_lema.csv");
+    //ifstream file("../preprocesamiento/datosBase_prueba.csv");
+    ifstream file("../preprocesamiento/datosBase_lema.csv");
 
     while (getline(file, linea)) {
         stringstream lineStream(linea);
