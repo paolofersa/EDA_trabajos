@@ -196,7 +196,7 @@ SuffixTreeNode* suffixTreeDesdeSuffixArray(string S, vector<int>& orden, vector<
     return raiz;
 }
 
-int conteoRecursivo(SuffixTreeNode* nodoActual) {
+int conteoRecursivo(SuffixTreeNode* &nodoActual) {
     if (nodoActual->hijos.size() == 0)
         return 1;
     else {
@@ -207,7 +207,7 @@ int conteoRecursivo(SuffixTreeNode* nodoActual) {
     }
 }
 
-int cantidadCoincidencias(SuffixTreeNode* nodo, string S, string P) {
+int cantidadCoincidencias(SuffixTreeNode* &nodo, string S, string P) {
     int contador = 0, posComparada;
     SuffixTreeNode* nodoActual = nodo;
     bool coincidencia = true;
@@ -252,7 +252,7 @@ int main()
     vector<string> titulos;
     vector<string> abstracts;
     string linea;
-    ifstream file("../preprocesamiento/datosBase_prueba.csv");
+    ifstream file("../preprocesamiento/datosBase_lema.csv");
 
     while (getline(file, linea)) {
         stringstream lineStream(linea);
@@ -266,14 +266,13 @@ int main()
     }
 
     //CREACION DE ESTRUCTURA PARA ALMACENAMIENTO DE ABSTRACTS
-    vector<SuffixTreeNode*> nodosRaiz;
+    vector<SuffixTreeNode*> nodosRaiz(ids.size());
     string S;
     for (int i = 0; i < ids.size(); i++) {
         S = abstracts[i];
         vector<int> orden = construirSuffixArray(S);
         vector<int> arregloPCML = calcularArregloPCML(S, orden);
-        SuffixTreeNode* raiz = suffixTreeDesdeSuffixArray(S, orden, arregloPCML);
-        nodosRaiz.push_back(raiz);
+        nodosRaiz[i] = suffixTreeDesdeSuffixArray(S, orden, arregloPCML);
     }
 
     //INSERTAR PATRON DE BUSQUEDA
@@ -312,7 +311,8 @@ int main()
     cout << endl;
 
     for (int i = 0; i < ids.size(); i++) {
-        cout << ids[i] << ' :\t';
+        cout << ids[i];
+        cout << '\t';
         for (int j = 0; j < cantPalabrasQuery; j++) {
             double calificacion = matrCantidades[i][j] * log(ids.size() / docContienenPalabra[j]);
             cout << calificacion << '\t';            
