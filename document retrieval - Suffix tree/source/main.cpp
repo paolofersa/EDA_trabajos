@@ -302,6 +302,8 @@ int main()
             if (*(*(matrCantidades + i) + j) > 0)
                 docContienenPalabrasPorConsulta++;
         }
+        if (docContienenPalabrasPorConsulta == 0)
+            docContienenPalabrasPorConsulta = ids.size();
         docContienenPalabra.push_back(docContienenPalabrasPorConsulta);
     }
 
