@@ -1,0 +1,10 @@
+^D:\DOCUMENTOS\UCSP\CCOMP\2021-01\ESTRUCTURA DE DATOS AVANZADAS\LABORATORIO\TRABAJOS_GITHUB\EDA_TRABAJOS\DOCUMENT RETRIEVAL - SUFFIX TREE\BUILD\CMAKEFILES\DBF3B2715716065CE7BB7DC1BF0C8A23\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/Documentos/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/EDA_trabajos/document retrieval - Suffix tree" "-BD:/Documentos/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/EDA_trabajos/document retrieval - Suffix tree/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/Documentos/UCSP/CCOMP/2021-01/ESTRUCTURA de Datos Avanzadas/Laboratorio/TRABAJOS_github/EDA_trabajos/document retrieval - Suffix tree/build/final_dr_st.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

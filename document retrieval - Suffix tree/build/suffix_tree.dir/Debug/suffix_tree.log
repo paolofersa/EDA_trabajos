@@ -1,0 +1,12 @@
+﻿  main.cpp
+D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\document retrieval - Suffix tree\source\main.cpp(31,53): warning C4267: '=': conversión de 'size_t' a '_Ty'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\document retrieval - Suffix tree\source\main.cpp(57,75): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\document retrieval - Suffix tree\source\main.cpp(66,30): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\document retrieval - Suffix tree\source\main.cpp(70,32): warning C4018: '<=': no coinciden signed/unsigned
+D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\document retrieval - Suffix tree\source\main.cpp(159,120): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
+D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\document retrieval - Suffix tree\source\main.cpp(290,37): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+  suffix_tree.vcxproj -> D:\Documentos\UCSP\CCOMP\2021-01\ESTRUCTURA de Datos Avanzadas\Laboratorio\TRABAJOS_github\EDA_trabajos\document retrieval - Suffix tree\build\Debug\suffix_tree.exe
